@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.15
 ARG TZ='Asia/Tokyo'
 
 ENV TARGET_NKF=nkf-2.1.5 \
@@ -7,7 +7,7 @@ ENV TARGET_NKF=nkf-2.1.5 \
 LABEL maintainer="yuruto"
 
 RUN    apk update \
-    && apk add --no-cache tzdata jq grep \
+    && apk add --no-cache bash tzdata jq grep curl \
     && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     && apk add --no-cache --virtual .build-deps \
                gcc musl-dev g++ libgcc libstdc++ libc-dev linux-headers make tar \
@@ -24,11 +24,9 @@ RUN    apk update \
     && rm -rf /tmp/${TARGET_NKF} /tmp/${TARGET_NKF}.tar.gz \
     && rm -rf /root/.cache /var/cache/apk/*
 
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY remote_IoT_device.sh /usr/local/bin/remote_IoT_device.sh
 COPY start.sh /start.sh
-RUN  chmod 755 /usr/local/bin/entrypoint.sh \
-               /usr/local/bin/remote_IoT_device.sh \
+RUN  chmod 755 /usr/local/bin/remote_IoT_device.sh \
                /start.sh
 
 WORKDIR ${WORKING_DIR}

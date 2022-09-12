@@ -21,4 +21,5 @@ services:
             - ./.env
         volumes:
             - ./src/config:/config:ro
+            - ./src/work:/work
         logging: *json-logging
