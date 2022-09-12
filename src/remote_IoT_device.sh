@@ -61,7 +61,7 @@ login(){
         } | tr '\n' '&' > ${BASE_DIR}/post.data
         ${CURL} ${OPTS} -X POST -s -D ${HEADER} -c ${COOKIE} -b ${COOKIE} -A "${BROWSER}" -H "Accept-Language: ${LANGUAGE}" \
                 -H "content-type: application/x-www-form-urlencoded" -H "origin: https://cocoromembers.jp.sharp" ${_common_header} \
-                -H "referer: https://cocoromembers.jp.sharp/sic-front/sso/ExLoginViewAction.do" -d "@post.data" \
+                -H "referer: https://cocoromembers.jp.sharp/sic-front/sso/ExLoginViewAction.do" -d "@${BASE_DIR}/post.data" \
                 "https://cocoromembers.jp.sharp/sic-front/sso/A050101ExLoginAction.do"
         rm -f ${BASE_DIR}/post.data
     }
