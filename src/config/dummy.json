@@ -1,5 +1,5 @@
 {
-  "air_conditioner": {
+  "air-conditioner": {
     "start": {
       "data": [
         {
@@ -33,7 +33,7 @@
       "model_name": "my-machine"
     }
   },
-  "air_cleaner": {
+  "air-cleaner": {
     "start": {
     },
     "stop": {

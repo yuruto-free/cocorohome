@@ -153,12 +153,13 @@ get_device_list(){
 }
 
 execute_command(){
-    local _post_data_filename="$1"
+    local _device_name="$1"
+    local _post_data_filename="$2"
     echo -n "Execute command: "
     ${CURL} ${OPTS} -X POST -s -D ${HEADER} -c ${COOKIE} -b ${COOKIE} -A "${BROWSER}" -H "Host: cocoroplusapp.jp.sharp" -H "Connection: keep-alive" \
             -H "Content-Type: application/json" -H "Accept-Language: ${LANGUAGE}" -H "accept-encoding: gzip, deflate, br" -H "accept: */*" \
             -d "@${_post_data_filename}" -H "referer: https://cocoroplusapp.jp.sharp/air/ac/main/status" \
-            "https://cocoroplusapp.jp.sharp/v1/cocoro-air/sync/air-conditioner" | grep "status"
+            "https://cocoroplusapp.jp.sharp/v1/cocoro-air/sync/${_device_name}" | grep "status"
 }
 
 usage() {
@@ -255,7 +256,7 @@ target_config=${BASE_DIR}/target.json
 case "${exec_mode}" in
     start | stop)
         cat ${config_path} | ${JQ} ".${target_device}.${exec_mode}" > ${target_config}
-        execute_command ${target_config}
+        execute_command ${target_device} ${target_config}
         rm -f ${target_config}
         ;;
 
