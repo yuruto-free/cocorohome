@@ -1,0 +1,42 @@
+{
+  "air_conditioner": {
+    "start": {
+      "data": [
+        {
+          "edt": "0x00",
+          "epc": "0x01"
+        },
+        {
+          "edt": "0x02",
+          "epc": "0x03"
+        }
+      ],
+      "deviceToken": "0123456789abcdef",
+      "event_key": "network_control",
+      "map_ver": 123456789,
+      "model_name": "my-machine"
+    },
+    "stop": {
+      "data": [
+        {
+          "edt": "0x00",
+          "epc": "0x01"
+        },
+        {
+          "edt": "0x00",
+          "epc": "0x01"
+        }
+      ],
+      "deviceToken": "0123456789abcdef",
+      "event_key": "network_control",
+      "map_ver": 123456789,
+      "model_name": "my-machine"
+    }
+  },
+  "air_cleaner": {
+    "start": {
+    },
+    "stop": {
+    }
+  }
+}
