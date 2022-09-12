@@ -1,8 +1,8 @@
-# COCOROHOME
-Control IoT devices using COCORO Home
+# COCORO HOME
+Control IoT devices using COCORO HOME
 
 ## Preparation
-Run the following command.
+Run the following these commands.
 
 ```sh
 # build
@@ -121,7 +121,7 @@ esac
 ```
 
 ## Usage
-Execute the following command
+Execute the following command.
 
 ```sh
 # Run the container
@@ -130,9 +130,9 @@ docker-compose up -d
 docker exec -it cocorohome bash
 # Execute the command
 /usr/local/bin/remote_IoT.sh -config IoT_device.json -device air_conditioner -mode start
-# -> config file:         src/config/IoT.json in host environment (/config/IoT.json in docker environment)
-#    target device:       air_conditioner
-#    execution command:   start
+# config file:       src/config/IoT.json in host environment (/config/IoT.json in docker environment)
+# target device:     air_conditioner
+# execution command: start
 # -> send json data as following:
 #
 #    {

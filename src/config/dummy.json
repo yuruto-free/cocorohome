@@ -32,5 +32,11 @@
       "map_ver": 123456789,
       "model_name": "my-machine"
     }
+  },
+  "air_cleaner": {
+    "start": {
+    },
+    "stop": {
+    }
   }
 }
