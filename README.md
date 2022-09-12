@@ -57,7 +57,7 @@ Note: Here, the mitmproxy is used to create the config file.
 
     ```json
     {
-      "air_conditioner": {
+      "air-conditioner": {
         "start": {
           "data": [
             {
@@ -105,8 +105,12 @@ Look for the following description and correspond to the command added to the js
 # ===================
 target_config=${BASE_DIR}/target.json
 case "${exec_mode}" in
-    start | stop) # <- modify this line
-        cat ${config_path} | ${JQ} ".${target_device}.${exec_mode}" > ${target_config}
+#
+#   vvvvvvvvvvvv
+    start | stop) ### <- modify this line
+#   ^^^^^^^^^^^^
+#
+        cat ${config_path} | ${JQ} ".[\"${target_device}\"].${exec_mode}" > ${target_config}
         execute_command ${target_device} ${target_config}
         rm -f ${target_config}
         ;;
