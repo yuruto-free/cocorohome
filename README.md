@@ -107,7 +107,7 @@ target_config=${BASE_DIR}/target.json
 case "${exec_mode}" in
     start | stop) # <- modify this line
         cat ${config_path} | ${JQ} ".${target_device}.${exec_mode}" > ${target_config}
-        execute_command ${target_config}
+        execute_command ${target_device} ${target_config}
         rm -f ${target_config}
         ;;
 
