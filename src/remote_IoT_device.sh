@@ -136,7 +136,7 @@ logout(){
     local _file_path=${BASE_DIR}/redirect_url.txt
     ${CURL} ${OPTS} -s -D ${HEADER} -c ${COOKIE} -b ${COOKIE} -A "${BROWSER}" -H "Host: cocoroplusapp.jp.sharp" -H "Connection: keep-alive" \
             -H "Accept-Language: ${LANGUAGE}" -H "accept-encoding: gzip, deflate, br" -H "accept: */*" \
-            -H "referer: https://cocoroplusapp.jp.sharp/air/ac/main/menu" \
+            -H "referer: https://cocoroplusapp.jp.sharp/air/devicelist" \
             "https://cocoroplusapp.jp.sharp/v1/cocoro-air/logout" | grep -oP '(?<="redirectUrl": ").*(?=")' > ${_file_path}
     ${CURL} ${OPTS} -s -D ${HEADER} -c ${COOKIE} -b ${COOKIE} -A "${BROWSER}" -H "https://cocoroplusapp.jp.sharp/" \
             -H "Accept-Language: ${LANGUAGE}" -H "accept-encoding: gzip, deflate, br" -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
@@ -158,7 +158,7 @@ execute_command(){
     echo -n "Execute command: "
     ${CURL} ${OPTS} -X POST -s -D ${HEADER} -c ${COOKIE} -b ${COOKIE} -A "${BROWSER}" -H "Host: cocoroplusapp.jp.sharp" -H "Connection: keep-alive" \
             -H "Content-Type: application/json" -H "Accept-Language: ${LANGUAGE}" -H "accept-encoding: gzip, deflate, br" -H "accept: */*" \
-            -d "@${_post_data_filename}" -H "referer: https://cocoroplusapp.jp.sharp/air/ac/main/status" \
+            -d "@${_post_data_filename}" -H "referer: https://cocoroplusapp.jp.sharp/air/devicelist" \
             "https://cocoroplusapp.jp.sharp/v1/cocoro-air/sync/${_device_name}" | grep "status"
 }
 

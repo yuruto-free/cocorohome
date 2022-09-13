@@ -133,7 +133,7 @@ docker-compose up -d
 # Enter the container
 docker exec -it cocorohome bash
 # Execute the command
-/usr/local/bin/remote_IoT.sh -config IoT_device.json -device "air-conditioner" -mode start
+/usr/local/bin/remote_IoT_device.sh -config IoT.json -device "air-conditioner" -mode start
 # config file:       src/config/IoT.json in host environment (/config/IoT.json in docker environment)
 # target device:     air-conditioner
 # execution command: start
