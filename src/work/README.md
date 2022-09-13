@@ -2,7 +2,7 @@
 
 ```sh
 # Example1
-/usr/local/bin/remote_IoT.sh -config IoT_device.json -device "air-conditioner" -mode start
+/usr/local/bin/remote_IoT_device.sh -config IoT.json -device "air-conditioner" -mode start
 # Example2
-/usr/local/bin/remote_IoT.sh -mode deviceinfo
+/usr/local/bin/remote_IoT_device.sh -mode deviceinfo
 ```
